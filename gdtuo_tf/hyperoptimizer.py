@@ -5,7 +5,19 @@ from tensorflow import GradientTape, zeros_like
 
 
 class Hyperoptimizer:
+    """
+    The optimizer composites 2 optimizers;
+    the optimizer of variables, and the optimizer of hyper parameters.
+    """
     def __init__(self, vopt: Hyperedableopt, hopt: Hyperedableopt) -> None:
+        """
+        Parameters
+        ----------
+        vopt : Hyperedableopt
+            Optimizes the variable you want to optimize.
+        hopt : Hyperedableopt
+            Optimizes vopt's hyper parameters. 
+        """
         self.vopt = vopt
         self.hopt = hopt
         self.vgt = None
@@ -22,6 +34,20 @@ class Hyperoptimizer:
         return get_grad(self.vgt, fv, v)
 
     def step(self, fv: TFNumeric, v: TFNumeric) -> TFNumeric:
+        """
+        Updates your variables and hyper parameters of the optimizer according to given cost function.
+        Parameters
+        ----------
+        fv : Tensor | Variable
+            The values of your cost function, fv = f(v).
+        v : Tensor | Variable
+            The variable you want to optimize.
+        
+        Returns
+        -------
+        new_v : Tensor | Variable
+            Updated variables.
+        """
         h = self.vopt.get_hyperparameters()
         gh = self.get_hyperparameters_grad(fv, h)  # gh←fvのhに対する微分
         new_h = self.hopt.step(gh, h)  # ghに基づいてhを更新する
