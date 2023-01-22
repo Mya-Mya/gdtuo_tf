@@ -1,8 +1,8 @@
-from .hyperedableopt import Hyperedableopt
+from .optimizableoptimizer import OptimizableOptimizer
 from .types import TFNumeric
 
 
-class SGD(Hyperedableopt):
+class SGD(OptimizableOptimizer):
     def __init__(self, alpha: TFNumeric) -> None:
         super().__init__()
         self.set_hyperparameters(alpha)

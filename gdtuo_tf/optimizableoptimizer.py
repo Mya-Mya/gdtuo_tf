@@ -1,7 +1,7 @@
 from .types import TFNumeric
 
 
-class Hyperedableopt():
+class OptimizableOptimizer():
     """
     An abstract optimizer whose hyper parameters can be optimized.
     In order to calculate the gradient of updated variables on hyper parameters,

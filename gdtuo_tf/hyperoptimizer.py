@@ -1,4 +1,4 @@
-from .hyperedableopt import Hyperedableopt
+from .optimizableoptimizer import OptimizableOptimizer
 from .types import TFNumeric
 from .gttool import start_watch, get_grad
 from tensorflow import GradientTape, zeros_like
@@ -6,16 +6,16 @@ from tensorflow import GradientTape, zeros_like
 
 class Hyperoptimizer:
     """
-    The optimizer composites 2 optimizers;
+    Composites 2 optimizers;
     the optimizer of variables, and the optimizer of hyper parameters.
     """
-    def __init__(self, vopt: Hyperedableopt, hopt: Hyperedableopt) -> None:
+    def __init__(self, vopt: OptimizableOptimizer, hopt: OptimizableOptimizer) -> None:
         """
         Parameters
         ----------
-        vopt : Hyperedableopt
+        vopt : OptimizableOptimizer
             Optimizes the variable you want to optimize.
-        hopt : Hyperedableopt
+        hopt : OptimizableOptimizer
             Optimizes vopt's hyper parameters. 
         """
         self.vopt = vopt

@@ -1,9 +1,9 @@
-from .hyperedableopt import Hyperedableopt
+from .optimizableoptimizer import OptimizableOptimizer
 from .types import TFNumeric
 from tensorflow import Variable, zeros_like, sqrt
 
 
-class Adam(Hyperedableopt):
+class Adam(OptimizableOptimizer):
     def __init__(self, alpha: TFNumeric, beta1: TFNumeric, beta2: TFNumeric) -> None:
         super().__init__()
         h = Variable([alpha, beta1, beta2])
