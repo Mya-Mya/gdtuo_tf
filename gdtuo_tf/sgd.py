@@ -1,10 +1,12 @@
 from .optimizableoptimizer import OptimizableOptimizer
 from .types import TFNumeric
+from tensorflow import Variable
 
 
 class SGD(OptimizableOptimizer):
-    def __init__(self, alpha: TFNumeric) -> None:
+    def __init__(self, alpha: float = 0.01) -> None:
         super().__init__()
+        alpha = Variable(float(alpha))
         self.set_hyperparameters(alpha)
 
     def step(self, gradients: TFNumeric, variables: TFNumeric) -> TFNumeric:

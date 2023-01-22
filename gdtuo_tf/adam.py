@@ -4,9 +4,9 @@ from tensorflow import Variable, zeros_like, sqrt
 
 
 class Adam(OptimizableOptimizer):
-    def __init__(self, alpha: TFNumeric, beta1: TFNumeric, beta2: TFNumeric) -> None:
+    def __init__(self, alpha: float = 0.001, beta1: float = 0.9, beta2: float = 0.999) -> None:
         super().__init__()
-        h = Variable([alpha, beta1, beta2])
+        h = Variable([float(alpha), float(beta1), float(beta2)])
         self.set_hyperparameters(h)
         self.momentums = None
         self.velocities = None
