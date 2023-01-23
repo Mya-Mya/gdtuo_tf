@@ -1,3 +1,6 @@
+# GDTUO
+This repository is based on paper, "Gradient Descent: The Ultimate Optimizer".
+
 # Get Started
 ### Install & Import
 ```
