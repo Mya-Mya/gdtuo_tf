@@ -78,6 +78,8 @@ plt.legend()
 plt.show()
 ```
 
+![results_example](https://raw.githubusercontent.com/Mya-Mya/gdtuo_tf/main/results-example.png)
+
 # Reference
 ```
 @inproceedings{
